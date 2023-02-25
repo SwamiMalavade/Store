@@ -37,7 +37,7 @@ export const Home = () => {
                   <Card
                     title={post.title}
                     price={post.price}
-                    desc={post.description}
+                    desc={post.description.splice(0, 130)}
                     img={post.image}
                   />
                 }
