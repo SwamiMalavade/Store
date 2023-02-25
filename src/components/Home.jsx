@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Card } from "./Card";
 
 import axios from "axios";
+import { Spinner } from "./Spinner";
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getPosts = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setPosts(res.data);
-        console.log(posts);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -23,12 +25,14 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className="container-fluid bg-primary-subtle">
+    <div className="container-fluid ">
       <div className="container pt-5">
+        {loading && <Spinner />}
+
         <div className="row">
           {posts.map((post) => {
             return (
-              <div className="col-3 mt-4" key={post.id}>
+              <div className="col-lg-3 col-md-12 mt-4" key={post.id}>
                 {
                   <Card
                     title={post.title}

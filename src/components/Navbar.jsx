@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <a className="navbar-brand fw-bold" href="#">
-          Store
-        </a>
+    <nav className="navbar navbar-expand-lg bg-dark text-light">
+      <div className="container-fluid ">
+        <a className="navbar-brand fw-bold text-light">Store</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,30 +19,27 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link
+                className="nav-link active text-light"
+                aria-current="page"
+                to="/"
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/aboutus">
+              <Link className="nav-link text-light" to="/aboutus">
                 About Us
               </Link>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Cart
-            </button>
-          </form> */}
-          <div>
-            <span className="fs-5 fw-bold">Cart</span>
-            <i className="bi bi-cart-check-fill fs-4 ms-3 me-5"></i>
+          <div className="justify-content-center">
+            
+              <Link to="/cart" className="nav-link text-light">
+                View Cart
+              <i className="bi bi-cart-check-fill fs-4 ms-1 me-5 align-self-center"></i>
+              </Link>
+            
           </div>
         </div>
       </div>

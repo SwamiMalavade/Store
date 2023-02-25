@@ -1,6 +1,16 @@
+import React, { useState } from 'react'
+
 export const Card = (props) => {
+
+  const [counter, setCounter] = useState(1)
+
+  const handleClick=()=>{
+    setCounter(counter+1)
+    console.log(counter);
+  }
+
   return (
-    <div className="card">
+    <div className="card shadow">
       <img
         src={props.img}
         className="card-img-top p-5 "
@@ -12,9 +22,9 @@ export const Card = (props) => {
         <p className="card-text">{props.category}</p>
         <p className="card-text">{props.desc}</p>
         <p className="card-text fw-bold">Price: {props.price}</p>
-        <a href="#" className="btn btn-primary">
+        <button className="btn btn-primary" onClick={handleClick} >
           Add To Cart
-        </a>
+        </button>
       </div>
     </div>
   );
