@@ -28,16 +28,15 @@ export const Home = () => {
     <div className="container-fluid ">
       <div className="container pt-5">
         {loading && <Spinner />}
-
         <div className="row">
           {posts.map((post) => {
             return (
-              <div className="col-lg-3 col-md-12 mt-4" key={post.id}>
+              <div className="col-lg-3 col-md-12 my-4" key={post.id}>
                 {
                   <Card
-                    title={post.title}
+                    title={post.title.slice(0,60)}
                     price={post.price}
-                    desc={post.description.splice(0, 130)}
+                    desc={post.description.slice(0,130)}
                     img={post.image}
                   />
                 }
