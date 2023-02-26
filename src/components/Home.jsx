@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useCart } from "react-use-cart";
 
 import axios from "axios";
 import { Spinner } from "./Spinner";
@@ -6,6 +7,7 @@ import { Spinner } from "./Spinner";
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { addItem } = useCart();
 
   const getProducts = async () => {
     const res = await axios.get("https://fakestoreapi.com/products");
@@ -20,6 +22,30 @@ export const Home = () => {
   return (
     <div className="container-fluid ">
       <div className="container pt-5">
+        <div className="text-end">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Filter
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#">
+                  Price: High - Low
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Price: Low - High
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
         {loading && <Spinner />}
         <div className="row">
           {products.map((product) => {
@@ -27,20 +53,29 @@ export const Home = () => {
               <div className="col-lg-3 col-md-12 my-4 d-flex" key={product.id}>
                 {
                   <div className="card shadow">
-                  <img
-                    src={product.image}
-                    className="card-img-top p-5 "
-                    alt="Image Not Found"
-                    style={{ width: "100%", height: "20rem" }}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{product.title}</h5>
-                    <p className="card-text">{product.category}</p>
-                    <p className="card-text">{product.description.slice(0,150)}...</p>
-                    <p className="card-text fw-bold">Price: {product.price}$</p>
-                    <button className="btn btn-primary">Add To Cart</button>
+                    <img
+                      src={product.image}
+                      className="card-img-top p-5 "
+                      alt="Image Not Found"
+                      style={{ width: "100%", height: "20rem" }}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{product.title}</h5>
+                      <p className="card-text">{product.category}</p>
+                      <p className="card-text">
+                        {product.description.slice(0, 150)}...
+                      </p>
+                      <p className="card-text fw-bold">
+                        Price: {product.price}$
+                      </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => addItem(product)}
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
                   </div>
-                </div>
                 }
               </div>
             );
