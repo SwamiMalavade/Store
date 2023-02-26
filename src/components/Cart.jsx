@@ -1,47 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
-const dataSet = [
-  {
-    title: "Shoes",
-    img: "IMAGE",
-    btn: "Increment BUtton",
-    price: "price",
-  },
-  {
-    title: "Shirt",
-    img: "IMAGE",
-    btn: "Increment BUtton",
-    price: "price",
-  },
-  {
-    title: "chappal",
-    img: "IMAGE",
-    btn: "Increment BUtton",
-    price: "price",
-  },
-  {
-    title: "belt",
-    img: "IMAGE",
-    btn: "Increment BUtton",
-    price: "price",
-  },
-];
-
-export const Cart = () => {
-  const [cartItems, setCartItems] = useState("Cart is Empty");
-
+export const Cart = (props) => {
   return (
-    <div className="container text-center py-5 bg-warning-subtle text-center">
-      <h2>{cartItems}</h2>
-      {dataSet.map((data) => {
-        return (
-          <div className="row py-5">
-            <div className="col-3">{data.title}</div>
-            <div className="col-3">{data.img}</div>
-            <div className="col-3">{data.btn}</div>
-          </div>
-        );
-      })}
-    </div>
+    <table className="table container mt-5 text-center border border-4">
+      <thead>
+        <tr>
+          <th scope="col">Product ID</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Product Quantity</th>
+          <th scope="col">Product Price</th>
+          <th scope="col">Product Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colSpan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };

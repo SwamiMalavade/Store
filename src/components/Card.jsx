@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 export const Card = (props) => {
-  const [counter, setCounter] = useState(1);
-
-  const handleClick = () => {
-    setCounter(counter + 1);
-    console.log(counter);
+  const addToCart = (e) => {
+    console.log(e);
   };
 
   return (
@@ -22,10 +19,8 @@ export const Card = (props) => {
         <p className="card-text">{props.category}</p>
         <p className="card-text">{props.desc}...</p>
         <p className="card-text fw-bold">Price: {props.price}$</p>
-        <NavLink to="/cart">
-          <button className="btn btn-primary" onClick={handleClick}>
-            Add To Cart
-          </button>
+        <NavLink to="/cart" onClick={() => addToCart(props)}>
+          <button className="btn btn-primary">Add To Cart</button>
         </NavLink>
       </div>
     </div>
