@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Cart } from "./Cart";
 
-export const Card = (props) => {
-  const addToCart = (e) => {
-    console.log(e);
-  };
-
+export const Card = ({props, handleClick}) => {
   return (
     <div className="card shadow">
       <img
@@ -19,9 +16,9 @@ export const Card = (props) => {
         <p className="card-text">{props.category}</p>
         <p className="card-text">{props.desc}...</p>
         <p className="card-text fw-bold">Price: {props.price}$</p>
-        <NavLink to="/cart" onClick={() => addToCart(props)}>
-          <button className="btn btn-primary">Add To Cart</button>
-        </NavLink>
+        <button className="btn btn-primary" onClick={() => handleClick(props)}>
+          Add To Cart
+        </button>
       </div>
     </div>
   );

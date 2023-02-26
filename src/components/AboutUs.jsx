@@ -2,7 +2,7 @@ import React from "react";
 
 export const AboutUs = () => {
   return (
-    <div className="container justify-content-center">
+    <div className="container">
       <h1 className="fw-bold my-3 text-center">About Us</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nobis
