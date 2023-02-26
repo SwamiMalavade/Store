@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "./Card";
 
 import axios from "axios";
 import { Spinner } from "./Spinner";
@@ -7,12 +6,6 @@ import { Spinner } from "./Spinner";
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [cartItems, setCartItems] = useState([]);
-
-  const handleClick= (product)=>{
-    //setCartItems([...cartItems, product])
-    console.log(product);
-  }
 
   const getProducts = async () => {
     const res = await axios.get("https://fakestoreapi.com/products");
@@ -33,13 +26,21 @@ export const Home = () => {
             return (
               <div className="col-lg-3 col-md-12 my-4 d-flex" key={product.id}>
                 {
-                  <Card
-                    title={product.title.slice(0, 20)}
-                    price={product.price}
-                    desc={product.description.slice(0, 130)}
-                    img={product.image}
-                    handleClick={handleClick}
+                  <div className="card shadow">
+                  <img
+                    src={product.image}
+                    className="card-img-top p-5 "
+                    alt="Image Not Found"
+                    style={{ width: "100%", height: "20rem" }}
                   />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.title}</h5>
+                    <p className="card-text">{product.category}</p>
+                    <p className="card-text">{product.description.slice(0,150)}...</p>
+                    <p className="card-text fw-bold">Price: {product.price}$</p>
+                    <button className="btn btn-primary">Add To Cart</button>
+                  </div>
+                </div>
                 }
               </div>
             );

@@ -1,7 +1,6 @@
 import React from "react";
 
-export const Cart = (props) => {
-  const { title, price, id } = props;
+export const Cart = () => {
   return (
     <table className="table container mt-5 text-center border border-4">
       <thead>
@@ -15,10 +14,10 @@ export const Cart = (props) => {
       </thead>
       <tbody>
         <tr>
-          <th scope="row">{id}</th>
-          <td>{id}</td>
-          <td>{title}</td>
-          <td>{price}</td>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
