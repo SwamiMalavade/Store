@@ -22,30 +22,6 @@ export const Home = () => {
   return (
     <div className="container-fluid ">
       <div className="container pt-5">
-        <div className="text-end">
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Filter
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Price: High - Low
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Price: Low - High
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
         {loading && <Spinner />}
         <div className="row">
           {products.map((product) => {
