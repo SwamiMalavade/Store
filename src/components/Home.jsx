@@ -43,30 +43,3 @@ export const Home = () => {
     </div>
   );
 };
-
-{
-  /* <div className="card shadow">
-                    <img
-                      src={product.image}
-                      className="card-img-top p-5 "
-                      alt="Image Not Found"
-                      style={{ width: "100%", height: "20rem" }}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{product.title}</h5>
-                      <p className="card-text">{product.category}</p>
-                      <p className="card-text">
-                        {product.description.slice(0, 150)}...
-                      </p>
-                      <p className="card-text fw-bold">
-                        Price: {product.price}$
-                      </p>
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => addItem(product)}
-                      >
-                        Add To Cart
-                      </button>
-                    </div>
-                  </div> */
-}
