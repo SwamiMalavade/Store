@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useCart } from "react-use-cart";
 
 import axios from "axios";
 import { Spinner } from "./Spinner";
+import { CardItem } from "./CardItem";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { addItem } = useCart();
 
   const getProducts = async () => {
     const res = await axios.get("https://fakestoreapi.com/products");
@@ -28,7 +27,25 @@ export const Home = () => {
             return (
               <div className="col-lg-3 col-md-12 my-4 d-flex" key={product.id}>
                 {
-                  <div className="card shadow">
+                  <CardItem
+                    title={product.title}
+                    price={product.price}
+                    img={product.image}
+                    desc={product.description}
+                    id={product.id}
+                  />
+                }
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+{
+  /* <div className="card shadow">
                     <img
                       src={product.image}
                       className="card-img-top p-5 "
@@ -51,13 +68,5 @@ export const Home = () => {
                         Add To Cart
                       </button>
                     </div>
-                  </div>
-                }
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-};
+                  </div> */
+}
